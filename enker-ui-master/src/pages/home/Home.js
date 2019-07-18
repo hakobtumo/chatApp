@@ -10,7 +10,7 @@ export default () => (
     <div className="caption">
       <img className="tumo-logo-caption" src={tumoColorLogo}  alt="tumo"/>
       <p className={"display-4 text-black font-weight-bold"}>
-        Click <Link to="/login"><span className="text-white">here</span></Link> to start <span className="bg-light">connecting</span>
+        <span className="orangetext">Click</span> <Link to="/login"><span className="text-white">here</span></Link> <span className="bluetext">to</span> <span className="greentext">start</span> 
       </p>
     </div>
   </div>

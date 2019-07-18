@@ -20,4 +20,19 @@
 .tumo-logo-caption {
   width: 800px;
 }
+.text-white{
+  color:red !important
+}
+.orangetext{
+  color:orange
+}
 
+.bluetext{
+  color:rgb(52, 52, 238)
+}
+.greentext{
+  color:greenyellow
+}
+.font-weight-bold{
+  word-spacing: 30px;
+}
