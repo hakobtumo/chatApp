@@ -19,8 +19,26 @@ db.students.insertMany([{
     "Game Development",
   ],
   "location": "Gyumri"
+}, {
+  "email": "hakob.hakobyan@tumo.org",
+  "firstName": "Hakob",
+  "lastName": "Hakobyan",
+  "password": "123456789",
+  "learningTargets": [
+    "Game Development",
+  ],
+  "location": "Yerevan"
+},{
+  "email": "lol@gmail.com",
+  "firstName": "Geghvard",
+  "lastName": "Chubinghanyan",
+  "password": "123456789",
+  "learningTargets": [
+    "Game Development",
+  ],
+  "location": "Yerevan"
 }
 ])
 
 db.students.createIndex({ lastName: "text", firstName: "text", location: "text" })
-db.students.createIndex({ learningTargets: 1})
+db.students.createIndex({ learningTargets: 1 })
