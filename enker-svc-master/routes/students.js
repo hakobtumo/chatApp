@@ -7,8 +7,9 @@ var db = require('../db');
 /* Get a single student: req.user.username */
 router.get('/students/:email', passport.authenticate('basic', { session: false }),
   function(req, res, next) {
-    // TODO: add api handler to check if email/password exists
-    // TODO: Response back with user data
+    db.getClient().collection("students").findOne({email: req.params.email},(err,result)=>{
+      res.send(result)
+    })
 });
 
 /* Create a student account */
