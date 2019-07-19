@@ -8,7 +8,9 @@ var db = require('../db');
 router.get('/students/:email', passport.authenticate('basic', { session: false }),
   function(req, res, next) {
     db.getClient().collection("students").findOne({email: req.params.email},(err,result)=>{
-      res.send(result)
+      if(err) res.status(500).send({error:err.message})
+      if(!result) res.status(400).send({error:"This student does not exist"})
+      if(result) res.send(result)
     })
 });
 
