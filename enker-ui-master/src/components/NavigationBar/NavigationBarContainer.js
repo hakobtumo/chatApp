@@ -3,8 +3,12 @@ import { withRouter } from "react-router";
 
 import NavigationBar from './NavigationBar';
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   // TODO: Provide user data from state
+  
+    user: state.user.data,
+   
+  
 })
 
 const mapDispatchToProps = dispatch => {

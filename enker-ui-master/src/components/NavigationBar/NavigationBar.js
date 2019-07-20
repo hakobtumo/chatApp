@@ -47,7 +47,11 @@ export default ({user, location}) => (
          * 2. Button to logout user
          * 3. If connected to peer a button to chat
          */
+        user ? (
+          <p>hello {user.firstName}</p>
+        ) : null
       }
+      {console.log("hi"+user)}
     </Navbar>
   </div>
 );

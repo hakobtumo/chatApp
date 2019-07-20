@@ -4,6 +4,8 @@ import { Form, Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
+import { Redirect} from 'react-router-dom';
+
 /**
  * Component for Login Page
  */
@@ -21,7 +23,7 @@ export default class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-  //  alert(`Login is ${this.state.email}, password is ${this.state.pass}`)
+    alert(`Login is ${this.state.email}, password is ${this.state.password}`)
     this.props.loginUser(this.state);
     
   }
@@ -33,13 +35,13 @@ export default class Login extends Component {
   }
   render() {
     // TODO: use to redirect if user not logged in
-    // if (this.props.user) {
-    //   return (
-    //     <Redirect to={{
-    //       pathname: '/profile',
-    //     }} />
-    //   )
-    // }
+    if (this.props.user) {
+      return (
+        <Redirect to={{
+          pathname: '/profile',
+        }} />
+      )
+    }
     return (
       <Container className="mt-3 loginContainer">
 

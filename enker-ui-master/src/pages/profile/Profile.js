@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Redirect} from 'react-router-dom';
+// import {Redirect} from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
 /**
@@ -27,7 +27,7 @@ class Profile extends Component {
     // }
     return (
       <Container className="mt-5">
-        <div>TODO: add Profile form page showing logged in user data</div>
+        <div>Profile</div>
       </Container>      
     )
   }
