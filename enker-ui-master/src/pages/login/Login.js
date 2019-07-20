@@ -12,7 +12,7 @@ export default class Login extends Component {
     super(props);
     this.state = {
       email: null,
-      pass: null,
+      password: null,
     };
     this.changing = this.changing.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,14 +21,15 @@ export default class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    alert(`Login is ${this.state.email}, password is ${this.state.pass}`)
+  //  alert(`Login is ${this.state.email}, password is ${this.state.pass}`)
+    this.props.loginUser(this.state);
     
   }
   changing(event) {
     this.setState({ email: event.target.value });
   }
   passChanging(event){
-    this.setState({ pass: event.target.value });
+    this.setState({ password: event.target.value });
   }
   render() {
     // TODO: use to redirect if user not logged in

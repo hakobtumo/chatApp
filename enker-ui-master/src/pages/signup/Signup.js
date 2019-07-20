@@ -6,6 +6,7 @@ import { Container, Form, Button, Alert } from 'react-bootstrap';
 /**
  * Sign up page EXTRA CREDIT - not required
  */
+
 class Signup extends Component {
   constructor(props) {
     super(props);

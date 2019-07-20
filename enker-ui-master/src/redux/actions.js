@@ -29,8 +29,15 @@ export const createUser = (email, password, firstName, lastName, learningTargets
   }
 }
 
-export const loginUser = () => {
+export const loginUser = (email,password) => {
   return dispatch => {
+     axios.get(`${apiHost}/students/${email}`, { auth: {username: email, password: password } })
+     .then(response => {
+      console.log(response);
+     })
+     .catch(err => {
+      console.log(err);
+     });
     /**
      * TODO: Login Action
      * 1. Call Login API
