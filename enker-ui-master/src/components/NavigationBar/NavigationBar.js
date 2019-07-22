@@ -6,7 +6,7 @@ import tumoLogoArm from './tumo-logo-arm.png';
 import ProfileIcon from './ProfileIcon';
 import NetworkIcon from './NetworkIcon';
 import SearchIcon from './SearchIcon';
-
+import {logoutUser} from '../../redux/actions'
 import './navigationbar.css';
 
 export default ({user, location}) => (
@@ -18,7 +18,7 @@ export default ({user, location}) => (
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           {
-            // user.data ? (
+            user.data ? (
               <span>
                 <span className="ml-4 nav-icon">
                   <LinkContainer to="/profile">
@@ -36,7 +36,7 @@ export default ({user, location}) => (
                   </LinkContainer>
                 </span>
               </span>
-            // ) : null
+           ) : null
           }
         </Nav>
       </Navbar.Collapse>
@@ -52,6 +52,7 @@ export default ({user, location}) => (
         ) : null
       }
       {console.log("hi"+user)}
+      <button onClick={logoutUser(user)}>Log Out</button>
     </Navbar>
   </div>
 );
