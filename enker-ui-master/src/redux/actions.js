@@ -82,7 +82,6 @@ export const updateUser = () => {
 
 export const logoutUser = (user) => {
   return dispatch => {
-    debugger;
     Socket.connect(users => {
       users.emit("log out", user)
       sessionStorage.removeItem('email')

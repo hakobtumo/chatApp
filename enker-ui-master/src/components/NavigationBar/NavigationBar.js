@@ -6,10 +6,9 @@ import tumoLogoArm from './tumo-logo-arm.png';
 import ProfileIcon from './ProfileIcon';
 import NetworkIcon from './NetworkIcon';
 import SearchIcon from './SearchIcon';
-import {logoutUser} from '../../redux/actions'
 import './navigationbar.css';
 
-export default ({user, location}) => (
+export default ({user, location, logoutUser}) => (
   <div className="global-nav">
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
       <LinkContainer to="/">
@@ -17,7 +16,9 @@ export default ({user, location}) => (
       </LinkContainer>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
+       
           {
+            
             user.data ? (
               <span>
                 <span className="ml-4 nav-icon">
@@ -47,12 +48,12 @@ export default ({user, location}) => (
          * 2. Button to logout user
          * 3. If connected to peer a button to chat
          */
-        user ? (
-          <p>hello {user.firstName}</p>
+        user.data ? (
+          <div className="flex"><p>hello {user.firstName}</p></div>
         ) : null
       }
       {console.log("hi"+user)}
-      <button onClick={logoutUser(user)}>Log Out</button>
+    { user.data ? <LinkContainer to="/"><button className="flex" onClick={() => logoutUser(user)}>Log Out</button></LinkContainer> : null }
     </Navbar>
   </div>
 );
