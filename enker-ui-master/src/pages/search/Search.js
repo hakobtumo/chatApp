@@ -79,6 +79,7 @@ class Search extends React.Component {
                     as="button"
                     >
                     <span>{user.firstName} {user.lastName}</span> 
+                    {console.log(user)}
                     {user.loggedIn ? <Badge className="ml-2" variant="success">Logged In</Badge> : null}
                   </ListGroup.Item>
                 ))}

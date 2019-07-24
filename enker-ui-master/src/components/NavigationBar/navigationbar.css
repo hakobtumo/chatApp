@@ -16,3 +16,13 @@
 .global-nav {
   height: 57px;
 }
+.logoutBtn{
+  margin-right: -20px
+}
+.helloText{
+  color:wheat;
+  margin-bottom: -2px;
+}
+.flex{
+  margin:10px
+}

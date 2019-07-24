@@ -19,13 +19,13 @@ function usersNamespace(io) {
       }
     });
 
-    
+
     socket.on('login', user => {
       socket.join(user.email)
 
-      db.getClient().collection("student").findOneAndUpdate(
+      db.getClient().collection("students").findOneAndUpdate(
         { email: user.email },
-        { $set: { 'LoggedIn': true } },
+        { $set: { 'loggedIn': true } },
         { returnOriginal: false },
         function (err, results) {
           if (err) {
@@ -41,9 +41,9 @@ function usersNamespace(io) {
     socket.on('disconnect', user => {
       socket.join(user.email)
 
-      db.getClient().collection("student").findOneAndUpdate(
+      db.getClient().collection("students").findOneAndUpdate(
         { email: user.email },
-        { $set: { 'LoggedIn': false } },
+        { $set: { 'loggedIn': false } },
         { returnOriginal: false },
         function (err, results) {
           if (err) {
@@ -58,9 +58,9 @@ function usersNamespace(io) {
 
     socket.on('log out', user => {
       socket.join(user.email)
-      db.getClient().collection("student").findOneAndUpdate(
+      db.getClient().collection("students").findOneAndUpdate(
         { email: user.email },
-        { $set: { 'LoggedIn': false } },
+        { $set: { 'loggedIn': false } },
         { returnOriginal: false },
         function (err, results) {
           if (err) {

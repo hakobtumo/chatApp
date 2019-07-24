@@ -50,11 +50,11 @@ export default ({user, location, logoutUser, withUser}) => (
          * 3. If connected to peer a button to chat
          */
         user.data ? (
-          <div className="flex"><p>hello {user.firstName}</p></div>
+          <div className="flex"><p className="helloText">hello {user.data.firstName}</p></div>
         ) : null
       }
-      {console.log("hi"+user)}
-    { user.data ? <LinkContainer to="/"><button className="flex" onClick={() => logoutUser(user)}>Log Out</button></LinkContainer> : null }
+      
+    { user.data ? <LinkContainer to="/"><button className="flex btn btn-warning" onClick={() => logoutUser(user)}>Log Out</button></LinkContainer> : null }
     { withUser ? <LinkContainer to="/network"><Button className="ml-2" variant="outline-success">CHAT!</Button></LinkContainer> : null}
     </Navbar>
   </div>
