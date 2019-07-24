@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Nav, Navbar} from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import {LinkContainer} from 'react-router-bootstrap';
 import tumoLogoArm from './tumo-logo-arm.png';
 import ProfileIcon from './ProfileIcon';
@@ -8,7 +9,7 @@ import NetworkIcon from './NetworkIcon';
 import SearchIcon from './SearchIcon';
 import './navigationbar.css';
 
-export default ({user, location, logoutUser}) => (
+export default ({user, location, logoutUser, withUser}) => (
   <div className="global-nav">
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
       <LinkContainer to="/">
@@ -54,6 +55,7 @@ export default ({user, location, logoutUser}) => (
       }
       {console.log("hi"+user)}
     { user.data ? <LinkContainer to="/"><button className="flex" onClick={() => logoutUser(user)}>Log Out</button></LinkContainer> : null }
+    { withUser ? <LinkContainer to="/network"><Button className="ml-2" variant="outline-success">CHAT!</Button></LinkContainer> : null}
     </Navbar>
   </div>
 );

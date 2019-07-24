@@ -6,6 +6,7 @@ import NavigationBar from './NavigationBar';
 export const mapStateToProps = state => ({
   // TODO: Provide user data from state
     user: state.user,
+    withUser: state.network.withUser,
 })
 
 const mapDispatchToProps = dispatch => {
@@ -13,7 +14,8 @@ const mapDispatchToProps = dispatch => {
   return {
     logoutUser:(user)=>{
       dispatch(logoutUser(user))
-    }
+    },
+   
   }
 }
 
