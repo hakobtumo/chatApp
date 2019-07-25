@@ -19,6 +19,12 @@ function usersNamespace(io) {
       }
     });
 
+    socket.on('sendingAMessage',(newMessage,user)=>{
+      console.log(newMessage)
+      if(user){
+        socket.in(user.email).emit('messageFromServer',newMessage)
+      }
+    })
 
     socket.on('login', user => {
       socket.join(user.email)
