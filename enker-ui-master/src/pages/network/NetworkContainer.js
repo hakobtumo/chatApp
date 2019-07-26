@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
    */
   user: state.user.data,
   userError:state.user.error,
-  withUser:state.network.withUser
+  withUser:state.network.withUser,
+  receiver:state.network.receiver
 
 });
 

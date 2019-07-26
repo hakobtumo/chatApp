@@ -25,7 +25,18 @@ function usersNamespace(io) {
         socket.in(user.email).emit('messageFromServer',newMessage)
       }
     })
+    socket.on('editor-message', (toUser, fromUser, message) => {
+      if (toUser) {
+        users.in(toUser.email).emit('editor-message', fromUser, message);
+      }
+    });
 
+
+    socket.on('drawing-message', (toUser, fromUser, message) => {
+      if (toUser) {
+        users.in(toUser.email).emit('drawing-message', fromUser, message);
+      }
+    });
     socket.on('login', user => {
       socket.join(user.email)
 

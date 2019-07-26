@@ -1,15 +1,18 @@
 import React from 'react';
-import LioWebRTC from 'liowebrtc'
+import LioWebRTC from 'liowebrtc';
+import {Button, Badge} from 'react-bootstrap'
 /**
  * VideoChat - WebRTC Workshop: will contain all the logic to start video chat with peer
  */
+import endCallIcon from './end-call-icon.png';
+import callIcon from './phone-call.png'
 class VideoChat extends React.Component {
   constructor(props) {
 
     super(props);
     this.state = {
       nick:props.user ? props.user.firstName : null,
-      roomID: `tumochat${[props.caller.email, props.reveiver.email].sort().join()}`,
+      roomID: `tumochat${[props.caller.email, props.receiver.email].sort().join()}`,
       muted: true,
       camPaused: false,
       peers: [],
@@ -78,7 +81,7 @@ class VideoChat extends React.Component {
     this.readyToJoin() 
   }
   stopCall(){
-   this.webrtc.leave();
+   this.webrtc.leaveRoom();
    this.setState({
      inCall:false,
    })
