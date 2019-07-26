@@ -105,16 +105,19 @@ class VideoChat extends React.Component {
     // TODO: render video element of user and peers
     return (
       <div>
-        <div>
-            <video
-              // Important: The local video element needs to have a ref
-              ref={(vid) => { this.localVid = vid; }}
-            />
-            <p>{this.state.nick}</p>
-        </div>
         {this.generateRemotes()}
+        <div className="d-flex justify-content-center align-items-center">
+          <video controls width={this.state.inCall ? "50%" : "100%"} height="auto" autoPlay ref={(vid) => { this.localVid = vid; }}></video>
+          <div style={{position: "absolute", padding: "5px", alignSelf: "baseline"}}>
+            <Badge variant="info">{this.props.user.firstName}</Badge>
+          </div>
+          <div className="position-absolute">
+            <Button disabled={this.state.inCall ? true : null} variant="link" onClick={() => {this.startCall()}}><img width="45px" src={callIcon} alt="call" /></Button>
+            <Button disabled={this.state.inCall ? null : true} variant="link" onClick={() => {this.stopCall()}}><img width="45px" src={endCallIcon} alt="endcall" /></Button>
+          </div>
+        </div>
       </div>
-    );
+    )   
   }
 }
 

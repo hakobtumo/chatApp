@@ -4,6 +4,7 @@ import { Widget, addResponseMessage } from 'react-chat-widget';
 import Socket from '../../socket';
 import 'react-chat-widget/lib/styles.css';
 import './network.css';
+import VideoChat from './VideoChat';
 // TODO: use --> import Socket from '../../socket';
 
 /**
@@ -60,9 +61,13 @@ class NetworkPage extends Component {
             }
           </Col>
           <Col>
-            <div>TODO: add VideoChat element
-              {
-                // TODO: add video chat element
+            <div>
+            {this.props.withUser ?
+                <VideoChat
+                  currentUser={this.props.user}
+                  caller={this.props.receiver ? this.props.withUser : this.props.user}
+                  receiver={this.props.receiver ? this.props.user : this.props.withUser}
+                /> : null
               }
             </div>
           </Col>
